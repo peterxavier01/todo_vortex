@@ -1,0 +1,31 @@
+@import "./base";
+
+.custom-checkbox {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-grayish-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: 1em;
+  cursor: pointer;
+  @extend %disable-user-select;
+
+  &:hover {
+    border: 1px solid var(--bright-blue);
+    transition: border 0.2s ease-in-out;
+  }
+
+  svg {
+    fill: var(--white);
+    font-size: 1.2rem;
+  }
+}
+
+.checked {
+  background-image: var(--check-background);
+  transition: 0.3s ease-in-out;
+  border: 1px solid transparent;
+}

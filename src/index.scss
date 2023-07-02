@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+  --bright-blue: hsl(220, 98%, 61%);
+  --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --border-radius-sm: 6px;
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --drag-clr: hsl(235, 24%, 15%);
+}
+
+.light {
+  --bg-main: hsl(236, 33%, 92%);
+  --bg-secondary: hsl(0, 0%, 98%);
+  --text-input-clr: hsl(236, 9%, 61%);
+  --text-clr: hsl(235, 19%, 35%);
+  --text-blur-clr: hsl(233, 11%, 84%);
+}
+
+.dark {
+  --bg-main: hsl(235, 21%, 11%);
+  --bg-secondary: hsl(235, 24%, 19%);
+  --text-clr: hsl(234, 39%, 85%);
+  --text-input-clr: hsl(234, 11%, 52%);
+  --light-grayish-blue: hsl(236, 33%, 92%); // (hover)
+  --text-blur-clr: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue: hsl(237, 14%, 26%);
+}

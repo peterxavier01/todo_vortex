@@ -1,0 +1,24 @@
+main {
+  background-color: var(--bg-main);
+  transition: background-color 0.3s ease-in-out;
+  min-height: 100vh;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.wrapper {
+  position: relative;
+  margin-inline: auto;
+  margin-top: -12em;
+  width: 100%;
+  padding: 1em;
+
+  @media screen and (min-width: 768px) {
+    width: 600px;
+    margin-top: -13em;
+  }
+}

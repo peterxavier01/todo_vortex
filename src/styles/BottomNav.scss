@@ -1,0 +1,49 @@
+@import "./base";
+
+.bottom-nav {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-input-clr);
+  gap: 1em;
+  @extend %disable-user-select;
+  font-weight: 700;
+
+  %text-hover {
+    color: var(--text-clr);
+    transition: color 200ms ease-in-out;
+  }
+
+  & > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: space-between;
+    background-color: var(--bg-secondary);
+    padding: 1em;
+
+    p:nth-child(2) {
+      cursor: pointer;
+
+      &:hover {
+        @extend %text-hover;
+      }
+    }
+  }
+
+  & > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    background-color: var(--bg-secondary);
+    padding: 1em;
+
+    p {
+      cursor: pointer;
+    }
+
+    p:hover {
+      @extend %text-hover;
+    }
+  }
+}

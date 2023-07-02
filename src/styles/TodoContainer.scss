@@ -1,0 +1,27 @@
+.todo-container {
+  .single-todo:first-of-type {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .single-todo:last-of-type {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom: 0;
+  }
+
+  .single-todo {
+    border-bottom: 1px solid var(--dark-grayish-blue);
+  }
+
+  :not(.single-todo:first-of-type, .single-todo:last-of-type) {
+    border-radius: 0;
+  }
+
+  .dnd-text {
+    text-align: center;
+    color: var(--dark-grayish-blue);
+    font-size: 0.9rem;
+    margin-top: 3.5em;
+  }
+}

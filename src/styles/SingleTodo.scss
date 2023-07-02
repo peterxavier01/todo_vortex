@@ -1,0 +1,72 @@
+@import "./base";
+
+.single-todo {
+  position: relative;
+  background-color: var(--bg-secondary);
+  transition: background-color 0.3s ease-in-out;
+  padding: 1em 1.5em;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @extend %disable-user-select;
+
+  .check-container {
+    span:nth-child(2) {
+      color: var(--text-clr);
+      transition: color 0.3s ease-in-out;
+      font-weight: 700;
+    }
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  & > span {
+    cursor: pointer;
+  }
+
+  .custom-checkbox {
+    margin-left: -0.5em;
+    position: relative;
+    border-radius: 50% !important;
+  }
+
+  .edit-todo-container {
+    position: relative;
+    display: flex;
+    margin-right: 1em;
+    color: var(--text-clr);
+    transition: color 0.3s ease-in-out;
+    font-weight: 400;
+
+    input {
+      width: 100%;
+      outline: none;
+      border: 1px solid var(--text-input-clr);
+      background-color: var(--bg-main);
+      color: var(--text-clr);
+      padding: 1em;
+      font-size: 1rem;
+
+      @media screen and (min-width: 500px) {
+        width: 300px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        width: 400px;
+      }
+    }
+
+    & > span {
+      width: 100%;
+    }
+  }
+}
+
+.drag {
+  background-color: var(--drag-clr);
+}
