@@ -10,7 +10,6 @@
   --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   --border-radius-sm: 6px;
   --dark-grayish-blue: hsl(234, 11%, 52%);
-  --drag-clr: hsl(235, 24%, 15%);
 }
 
 .light {
@@ -19,6 +18,7 @@
   --text-input-clr: hsl(236, 9%, 61%);
   --text-clr: hsl(235, 19%, 35%);
   --text-blur-clr: hsl(233, 11%, 84%);
+  --drag-clr: hsl(0, 0%, 90%);
 }
 
 .dark {
@@ -29,4 +29,5 @@
   --light-grayish-blue: hsl(236, 33%, 92%); // (hover)
   --text-blur-clr: hsl(233, 14%, 35%);
   --very-dark-grayish-blue: hsl(237, 14%, 26%);
+  --drag-clr: hsl(235, 24%, 15%);
 }
