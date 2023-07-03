@@ -2,6 +2,41 @@ import { useEffect, useState } from "react";
 import "../styles/BottomNav.scss";
 import { saveTodo, useTodoContext } from "../context/TodoContext";
 
+type Props = {
+  handleClickOne: () => void;
+  handleClickTwo: () => void;
+  handleClickThree: () => void;
+  activeFilter: number;
+};
+
+const BottomNavBtn: React.FC<Props> = ({
+  handleClickOne,
+  handleClickTwo,
+  handleClickThree,
+  activeFilter,
+}) => (
+  <div className="bottom-nav-btn desktop">
+    <p
+      onClick={handleClickOne}
+      style={{ color: activeFilter === 0 ? "var(--bright-blue)" : "" }}
+    >
+      All
+    </p>
+    <p
+      onClick={handleClickTwo}
+      style={{ color: activeFilter === 1 ? "var(--bright-blue)" : "" }}
+    >
+      Active
+    </p>
+    <p
+      onClick={handleClickThree}
+      style={{ color: activeFilter === 2 ? "var(--bright-blue)" : "" }}
+    >
+      Completed
+    </p>
+  </div>
+);
+
 const BottomNav = () => {
   const [activeFilter, setActiveFilter] = useState<number>(0);
   const {
@@ -13,6 +48,7 @@ const BottomNav = () => {
     setCompletedTodos,
     setActiveTodos,
     setFilter,
+    screenWidth,
   } = useTodoContext();
   const TodoListLength = todos.length;
   const ActiveTodosLength = activeTodos.length;
@@ -59,6 +95,7 @@ const BottomNav = () => {
 
   // clear all completed todos
   const clearCompletedTodos = () => {
+    if (!completedTodos) return;
     const activeTodos = todos.filter((todo) => !todo.isDone);
     setTodos(activeTodos);
     setCompletedTodos([]);
@@ -68,38 +105,47 @@ const BottomNav = () => {
   return (
     <div className="bottom-nav">
       <div>
-        <p>{lengthToRender} items left</p>
+        <p>
+          {lengthToRender} item
+          {lengthToRender && lengthToRender > 2 ? "s" : ""} left
+        </p>
+        {screenWidth >= 768 && (
+          <BottomNavBtn
+            activeFilter={activeFilter}
+            handleClickOne={() => {
+              setFilter("all");
+              handleClick(0);
+            }}
+            handleClickTwo={() => {
+              handleClick(1);
+              getActiveTodos();
+            }}
+            handleClickThree={() => {
+              handleClick(2);
+              getCompletedTodos();
+            }}
+          />
+        )}
         <p onClick={clearCompletedTodos}>Clear completed</p>
       </div>
-      <div>
-        <p
-          onClick={() => {
+
+      {screenWidth < 768 && (
+        <BottomNavBtn
+          activeFilter={activeFilter}
+          handleClickOne={() => {
             setFilter("all");
             handleClick(0);
           }}
-          style={{ color: activeFilter === 0 ? "var(--bright-blue)" : "" }}
-        >
-          All
-        </p>
-        <p
-          onClick={() => {
+          handleClickTwo={() => {
             handleClick(1);
             getActiveTodos();
           }}
-          style={{ color: activeFilter === 1 ? "var(--bright-blue)" : "" }}
-        >
-          Active
-        </p>
-        <p
-          onClick={() => {
+          handleClickThree={() => {
             handleClick(2);
             getCompletedTodos();
           }}
-          style={{ color: activeFilter === 2 ? "var(--bright-blue)" : "" }}
-        >
-          Completed
-        </p>
-      </div>
+        />
+      )}
     </div>
   );
 };

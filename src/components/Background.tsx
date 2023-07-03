@@ -4,11 +4,13 @@ import BgMobileLight from "../assets/bg-mobile-light.jpg";
 import BgMobileDark from "../assets/bg-mobile-dark.jpg";
 import "../styles/Background.scss";
 import { useThemeContext } from "../context/ThemeContext";
+import { useTodoContext } from "../context/TodoContext";
 
 const Background = () => {
   const { theme } = useThemeContext();
+  const { screenWidth } = useTodoContext();
   const isDarkMode = theme === "dark";
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = screenWidth <= 768;
   let bgImg = "";
 
   if (isDarkMode && !isMobile) {

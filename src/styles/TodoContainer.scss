@@ -1,3 +1,5 @@
+@import "./base";
+
 .todo-container {
   .single-todo:first-of-type {
     border-bottom-left-radius: 0;
@@ -7,7 +9,8 @@
   .single-todo:last-of-type {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .single-todo {
@@ -23,5 +26,6 @@
     color: var(--dark-grayish-blue);
     font-size: 0.9rem;
     margin-top: 3.5em;
+    @extend %disable-user-select;
   }
 }

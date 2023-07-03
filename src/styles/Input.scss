@@ -13,20 +13,20 @@
   input {
     width: 100%;
     margin-left: 3em;
-    padding: 1.5em;
+    padding: 1.2em;
     border-radius: var(--border-radius-sm);
     outline: none;
     border: 1px solid transparent;
     background-color: transparent;
     color: var(--text-clr);
     transition: color 0.3s ease-in-out;
-    font-weight: 700;
-    font-size: 1rem;
+    font-weight: 400;
+    font-size: 18px;
   }
 
   ::placeholder {
     color: var(--text-input-clr);
-    font-weight: 700;
+    font-weight: 400;
   }
 
   span {

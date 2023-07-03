@@ -15,11 +15,35 @@ type Props = {
 const SingleTodo: React.FC<Props> = ({ todo, index }) => {
   const { deleteTodo, todos, setTodos } = useTodoContext();
   const [savedValue, setValue] = useLocalStorage("checked", todo.isDone);
-
   const [edit, setEdit] = useState<string>(todo.todo);
+
   const [editTodo, setEditTodo] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const { screenWidth } = useTodoContext();
 
+  const handleMouseEnter = () => {
+    if (screenWidth > 768) {
+      setIsHovered(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (screenWidth > 768) {
+      setIsHovered(false);
+    }
+  };
+
+  // show the delete icon on small screens and only on hover on large screens
+  useEffect(() => {
+    if (screenWidth <= 768) {
+      setIsHovered(true);
+    } else {
+      setIsHovered(false);
+    }
+  }, [screenWidth]);
+
+  // set the focus on the input when updating the todo
   useEffect(() => {
     inputRef.current?.focus();
   }, [editTodo]);
@@ -60,6 +84,8 @@ const SingleTodo: React.FC<Props> = ({ todo, index }) => {
             ...provided.draggableProps.style,
             width: snapshot.isDragging ? "200px" : "auto",
           }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -106,9 +132,11 @@ const SingleTodo: React.FC<Props> = ({ todo, index }) => {
             </div>
           </div>
 
-          <span onClick={() => deleteTodo(todo.id)}>
-            <img src={DeleteIcon} alt="delete-icon" />
-          </span>
+          {isHovered && (
+            <span onClick={() => deleteTodo(todo.id)}>
+              <img src={DeleteIcon} alt="delete-icon" />
+            </span>
+          )}
         </form>
       )}
     </Draggable>

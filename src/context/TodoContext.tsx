@@ -23,6 +23,17 @@ export const TodoContextProvider: React.FC<Props> = ({ children }) => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [activeTodos, setActiveTodos] = useState<Todo[]>([]);
   const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setScreenWidth]);
 
   const getTodos = useCallback(() => {
     const savedTodos = localStorage.getItem("todos");
@@ -68,6 +79,7 @@ export const TodoContextProvider: React.FC<Props> = ({ children }) => {
         setCompletedTodos,
         filter,
         setFilter,
+        screenWidth,
       }}
     >
       {children}

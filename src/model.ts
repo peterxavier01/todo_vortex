@@ -17,6 +17,7 @@ export type TodoContextType = {
   setActiveTodos: (todos: Todo[]) => void;
   completedTodos: Todo[];
   setCompletedTodos: (todos: Todo[]) => void;
+  screenWidth: number;
 };
 
 export type ThemeContextType = {
