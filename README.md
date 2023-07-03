@@ -38,7 +38,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: https://todo-vortex.netlify.app/
 
 ## My process
 
@@ -73,10 +73,9 @@ const inputRef = useRef<HTMLInputElement>(null);
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@peterxavier01](https://www.frontendmentor.io/profile/peterxavier01)
+- Twitter - [@peter_uadiale](https://www.twitter.com/yourusername)
 
 ## Acknowledgments
 
-I would like to appreciate the ideas, pointers and help in general, gotten from Stackoverflow, ChatGPT and the Bobby Hadz blog.
+I would like to appreciate the ideas, pointers, and help in general, gotten from Stackoverflow, ChatGPT, and the Bobby Hadz blog.
