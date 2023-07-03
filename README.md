@@ -20,7 +20,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 Users should be able to:
 
-- View the optimal layout for the app depending on their device's screen size
+- View the optimal layout for the app depending on the device's screen size
 - See hover states for all interactive elements on the page
 - Add new todos to the list
 - Mark todos as complete
@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./src/assets/screenshot.png)
 
 ### Links
 
