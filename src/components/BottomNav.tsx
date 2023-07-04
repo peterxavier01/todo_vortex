@@ -107,7 +107,7 @@ const BottomNav = () => {
       <div>
         <p>
           {lengthToRender} item
-          {lengthToRender && lengthToRender > 2 ? "s" : ""} left
+          {lengthToRender && lengthToRender > 1 ? "s" : ""} left
         </p>
         {screenWidth >= 768 && (
           <BottomNavBtn
